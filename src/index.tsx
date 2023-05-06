@@ -7,7 +7,6 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import {createBrowserRouter} from "react-router-dom";
 
-
 // const router = createBrowserRouter([
 //     {
 //         path: '/',
@@ -19,7 +18,6 @@ import {createBrowserRouter} from "react-router-dom";
 //
 //     }
 // ])
-
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
