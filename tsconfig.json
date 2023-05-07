@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "compilerOptions": {
       "baseUrl": "src",
       "target": "es5",
     "lib": [
