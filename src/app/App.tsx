@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import { Counter } from 'features/counter/Counter';
 import 'app/App.css';
 import {useAppDispatch, useAppSelector} from "app/hooks";
+import {appActions} from "app/app.slice";
 
 function App() {
   const isLoading = useAppSelector((state) => state.app.isLoading);
@@ -9,9 +10,9 @@ function App() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    // setTimeout(() => {
-    //   dispatch(appActions.setIsLoading({ isLoading: false }));
-    // }, 3000);
+   setTimeout(()=> {
+dispatch(appActions.setIsLoading({isLoading: false}))
+   },3000)
   }, []);
 
   return (
