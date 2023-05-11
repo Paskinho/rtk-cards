@@ -2,7 +2,7 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {authApi} from "features/auth/auth.api";
 
 
-const register = createAsyncThunk('auth/register', (arg, thunkAPI)=> {
+const register = createAsyncThunk('auth/register', (arg: any, thunkAPI)=> {
     const {dispatch, getState, rejectWithValue} = thunkAPI
     authApi.register().then((res)=> {
 
