@@ -3,6 +3,7 @@ import { Counter } from 'features/counter/Counter';
 import 'app/App.css';
 import {useAppDispatch, useAppSelector} from "app/hooks";
 import {appActions} from "app/app.slice";
+import {Register} from "features/auth/Register/Register";
 
 function App() {
   const isLoading = useAppSelector((state) => state.app.isLoading);
@@ -19,6 +20,7 @@ dispatch(appActions.setIsLoading({isLoading: false}))
       <div className="App">
         {isLoading && <h1>Loader...</h1>}
         <Counter />
+          <Register/> // можно удалить
       </div>
   );
 }
