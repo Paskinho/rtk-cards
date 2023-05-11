@@ -2,7 +2,7 @@ import {instance} from "common/api/common.api";
 
 export const authApi = {
     register: (arg: ArgRegisterType) => {
-return instance.post('auth/register', arg )
+return instance.post<RegisterResponseType>('auth/register', arg )
     }
 }
 
@@ -12,11 +12,11 @@ export type ArgRegisterType = {
     password: string
 }
 
-export type RegistreResponsetype = {
+export type RegisterResponseType = {
     addedUser: UserType
 }
 
-export type UserType = {
+type UserType = {
     _id: string;
     email: string;
     rememberMe: string;
