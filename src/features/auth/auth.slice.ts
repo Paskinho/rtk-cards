@@ -1,22 +1,14 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 import {ArgLoginType, ArgRegisterType, authApi, ProfileType} from "features/auth/auth.api";
-import {AppDispatch, RootState} from "app/store";
+import {createAppAsyncThunk} from "common/utils/createAppAsyncThunk";
 
 
-const register = createAsyncThunk <void, ArgRegisterType, {
-    state: RootState
-    dispatch: AppDispatch,
-    rejectValue: unknown
-}>
+const register = createAppAsyncThunk <void, ArgRegisterType>
 ('auth/register', async (arg) => {
   await authApi.register(arg)
 });
 
-const login = createAsyncThunk <{profile: ProfileType}, ArgLoginType, {
-    state: RootState
-    dispatch: AppDispatch,
-    rejectValue: unknown
-}>
+const login = createAppAsyncThunk <{profile: ProfileType}, ArgLoginType>
 ('auth/login', async (arg)=> {
          const res = await authApi.login(arg);
         return {profile: res.data}
@@ -37,6 +29,5 @@ const slice = createSlice({
 });
 
 export const authReducer = slice.reducer;
-// export const authActions = slice.actions;
 export const authThunks = {register, login};
 
