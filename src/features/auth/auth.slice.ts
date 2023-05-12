@@ -3,14 +3,19 @@ import {ArgLoginType, ArgRegisterType, authApi, ProfileType} from "features/auth
 import {AppDispatch, RootState} from "app/store";
 
 
-const register = createAsyncThunk('auth/register', async (arg: ArgRegisterType) => {
+const register = createAsyncThunk <void, ArgRegisterType, {
+    state: RootState
+    dispatch: AppDispatch,
+    rejectValue: unknown
+}>
+('auth/register', async (arg) => {
   await authApi.register(arg)
 });
 
 const login = createAsyncThunk <{profile: ProfileType}, ArgLoginType, {
-    state?: RootState
-    dispatch?: AppDispatch,
-    rejectValue?: unknown
+    state: RootState
+    dispatch: AppDispatch,
+    rejectValue: unknown
 }>
 ('auth/login', async (arg)=> {
          const res = await authApi.login(arg);
