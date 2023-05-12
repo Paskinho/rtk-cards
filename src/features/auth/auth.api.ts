@@ -10,34 +10,20 @@ return instance.post<RegisterResponseType>('auth/register', arg )
 }
 
 
-export type ArgRegisterType = {
-    email: string,
-    password: string
-}
-
 
 export type ArgLoginType = {
-    email: string;
-    password: string;
-    rememberMe: boolean;
+    email: string,
+    password: string,
+    rememberMe: boolean,
 };
+
+export type ArgRegisterType = Omit<ArgLoginType, 'rememberMe'>
+
 
 export type RegisterResponseType = {
     addedUser: UserType
 }
 
-type UserType = {
-    _id: string;
-    email: string;
-    rememberMe: string;
-    isAdmin: boolean;
-    name: string;
-    verified: boolean;
-    publicCardPacksCount: number;
-    created: string;
-    updated: string;
-    __v: number;
-}
 
 type LoginResponseType = {
     _id: string;
@@ -51,8 +37,8 @@ type LoginResponseType = {
     updated: string;
     __v: number;
     token: string,
-    tokeDeathTime: number
+    tokenDeathTime: number
 }
 
-
+type UserType = Omit<LoginResponseType, 'token, tokenDeathTime'>
 
