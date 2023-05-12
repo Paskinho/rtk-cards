@@ -5,7 +5,7 @@ import { store } from './app/store';
 import App from 'app/App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-import {createBrowserRouter} from "react-router-dom";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import { Register } from 'features/auth/Register/Register';
 import {Login} from "features/auth/Login/Login";
 
@@ -33,11 +33,10 @@ const container = document.getElementById('root')!;
 const root = createRoot(container);
 
 root.render(
-  <React.StrictMode>
     <Provider store={store}>
-      <App />
+        <RouterProvider router={router} />
+        <App />
     </Provider>
-  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
