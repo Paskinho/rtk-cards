@@ -20,7 +20,8 @@ dispatch(appActions.setIsLoading({isLoading: false}))
       <div className="App">
         {isLoading && <h1>Loader...</h1>}
         <Counter />
-          <Register/> // можно удалить
+          <Register/>
+
       </div>
   );
 }
