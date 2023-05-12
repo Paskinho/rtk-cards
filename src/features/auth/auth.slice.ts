@@ -12,9 +12,10 @@ const register = createAsyncThunk('auth/register', (arg: ArgRegisterType) => {
 
 const login = createAsyncThunk('auth/login', (arg: ArgLoginType, thunkAPI)=> {
 const {dispatch} = thunkAPI
-    authApi.login(arg).then((res)=> {
+   return  authApi.login(arg).then((res)=> {
         debugger
-        dispatch(authActions.setProfile({profile: res.data}))
+        // dispatch(authActions.setProfile({profile: res.data}))
+        return {profile: res.data}
     })
 })
 
@@ -29,6 +30,11 @@ const slice = createSlice({
             state.profile = action.payload.profile
         }
     },
+    extraReducers: builder =>{
+        builder.addCase(login.fulfilled,(state, action) => {
+            state.profile = action.payload.profile
+        })
+    }
 });
 
 export const authReducer = slice.reducer;
