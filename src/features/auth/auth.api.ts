@@ -5,7 +5,7 @@ export const authApi = {
 return instance.post<RegisterResponseType>('auth/register', arg )
     },
     login: (arg: ArgLoginType) => {
-        return instance.post('auth/login', arg)
+        return instance.post<LoginResponseType>('auth/login', arg)
     }
 }
 
@@ -38,4 +38,21 @@ type UserType = {
     updated: string;
     __v: number;
 }
+
+type LoginResponseType = {
+    _id: string;
+    email: string;
+    rememberMe: string;
+    isAdmin: boolean;
+    name: string;
+    verified: boolean;
+    publicCardPacksCount: number;
+    created: string;
+    updated: string;
+    __v: number;
+    token: string,
+    tokeDeathTime: number
+}
+
+
 

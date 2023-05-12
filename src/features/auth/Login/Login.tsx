@@ -8,8 +8,8 @@ export const Login = () => {
 
     const loginHandler = () => {
         const payload = {
-            email: "paskanov@mail.ru",
-            password: "Paskanov9",
+            email: "v.paskanov@gmail.com",
+            password: "Luissuarez_07",
             rememberMe: false
         }
 
