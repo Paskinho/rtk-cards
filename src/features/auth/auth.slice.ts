@@ -1,27 +1,21 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {ArgLoginType, ArgRegisterType, authApi, ProfileType} from "features/auth/auth.api";
+import {AppDispatch, RootState} from "app/store";
 
 
-const register = createAsyncThunk('auth/register', (arg: ArgRegisterType) => {
-    // const {dispatch, getState, rejectWithValue} = thunkAPI
-    authApi.register(arg).then((res) => {
-        console.log('register:', res.data)
-        //res.data.addedUser
-    })
-})
+const register = createAsyncThunk('auth/register', async (arg: ArgRegisterType) => {
+  await authApi.register(arg)
+});
 
-const _login = createAsyncThunk('auth/login', (arg: ArgLoginType)=> {
-   return  authApi.login(arg).then((res)=> {
-        debugger
-
-        return {profile: res.data}
-    })
-})
-
-const login = createAsyncThunk('auth/login', async (arg: ArgLoginType)=> {
+const login = createAsyncThunk <{profile: ProfileType}, ArgLoginType, {
+    state?: RootState
+    dispatch?: AppDispatch,
+    rejectValue?: unknown
+}>
+('auth/login', async (arg)=> {
          const res = await authApi.login(arg);
         return {profile: res.data}
-})
+});
 
 
 const slice = createSlice({
