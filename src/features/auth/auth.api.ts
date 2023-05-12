@@ -2,13 +2,12 @@ import {instance} from "common/api/common.api";
 
 export const authApi = {
     register: (arg: ArgRegisterType) => {
-return instance.post<RegisterResponseType>('auth/register', arg )
+        return instance.post<RegisterResponseType>('auth/register', arg)
     },
     login: (arg: ArgLoginType) => {
-        return instance.post<LoginResponseType>('auth/login', arg)
+        return instance.post<ProfileType>('auth/login', arg)
     }
 }
-
 
 
 export type ArgLoginType = {
@@ -20,12 +19,7 @@ export type ArgLoginType = {
 export type ArgRegisterType = Omit<ArgLoginType, 'rememberMe'>
 
 
-export type RegisterResponseType = {
-    addedUser: UserType
-}
-
-
-type LoginResponseType = {
+export type ProfileType = {
     _id: string;
     email: string;
     rememberMe: string;
@@ -39,6 +33,8 @@ type LoginResponseType = {
     token: string,
     tokenDeathTime: number
 }
+export type RegisterResponseType = {
+    addedUser: Omit<ProfileType, 'token' | 'tokenDeathTime'>
+}
 
-type UserType = Omit<LoginResponseType, 'token, tokenDeathTime'>
 
