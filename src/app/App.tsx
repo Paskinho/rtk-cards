@@ -3,8 +3,6 @@ import {Counter} from 'features/counter/Counter';
 import 'app/App.css';
 import {useAppDispatch, useAppSelector} from "app/hooks";
 import {appActions} from "app/app.slice";
-import {Register} from "features/auth/Register/Register";
-import {Login} from "features/auth/Login/Login";
 
 function App() {
     const isLoading = useAppSelector((state) => state.app.isLoading);

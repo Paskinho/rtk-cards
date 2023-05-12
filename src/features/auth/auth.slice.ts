@@ -3,15 +3,15 @@ import {ArgLoginType, ArgRegisterType, authApi, ProfileType} from "features/auth
 import {createAppAsyncThunk} from "common/utils/createAppAsyncThunk";
 
 
-const register = createAppAsyncThunk <void, ArgRegisterType>
+const register = createAppAsyncThunk<void, ArgRegisterType>
 ('auth/register', async (arg) => {
-  await authApi.register(arg)
+    await authApi.register(arg)
 });
 
-const login = createAppAsyncThunk <{profile: ProfileType}, ArgLoginType>
-('auth/login', async (arg)=> {
-         const res = await authApi.login(arg);
-        return {profile: res.data}
+const login = createAppAsyncThunk<{ profile: ProfileType }, ArgLoginType>
+('auth/login', async (arg) => {
+    const res = await authApi.login(arg);
+    return {profile: res.data}
 });
 
 
@@ -21,8 +21,8 @@ const slice = createSlice({
         profile: null as ProfileType | null,
     },
     reducers: {},
-    extraReducers: builder =>{
-        builder.addCase(login.fulfilled,(state, action) => {
+    extraReducers: builder => {
+        builder.addCase(login.fulfilled, (state, action) => {
             state.profile = action.payload.profile
         })
     }
