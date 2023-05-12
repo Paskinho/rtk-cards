@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {ArgLoginType, ArgRegisterType, authApi, ProfileType} from "features/auth/auth.api";
 
 
@@ -10,12 +10,17 @@ const register = createAsyncThunk('auth/register', (arg: ArgRegisterType) => {
     })
 })
 
-const login = createAsyncThunk('auth/login', (arg: ArgLoginType)=> {
+const _login = createAsyncThunk('auth/login', (arg: ArgLoginType)=> {
    return  authApi.login(arg).then((res)=> {
         debugger
 
         return {profile: res.data}
     })
+})
+
+const login = createAsyncThunk('auth/login', async (arg: ArgLoginType)=> {
+         const res = await authApi.login(arg);
+        return {profile: res.data}
 })
 
 
