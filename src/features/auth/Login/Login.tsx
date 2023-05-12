@@ -17,9 +17,11 @@ export const Login = () => {
     };
 
     return (
+    <form>
         <div className={s.container}>
             <h1>Login</h1>
             <button onClick={loginHandler}>login</button>
         </div>
+    </form>
     );
 }
