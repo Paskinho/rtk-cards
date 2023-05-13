@@ -1,5 +1,9 @@
 
 
 export const Profile = () => {
-    return
+    return (
+        <div>
+            Profile
+        </div>
+    )
 }

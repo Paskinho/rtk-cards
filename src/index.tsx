@@ -8,6 +8,7 @@ import './index.css';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import { Register } from 'features/auth/Register/Register';
 import {Login} from "features/auth/Login/Login";
+import { Profile } from 'features/profile/Profile';
 
 const router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
     {
         path: '/packs',
         element: <h1>Packs</h1>
+    },
+    {
+        path: '/profile',
+        element:<Profile/>
     }
 ])
 
