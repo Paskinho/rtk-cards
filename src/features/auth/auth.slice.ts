@@ -21,9 +21,6 @@ const slice = createSlice({
         builder.addCase(login.fulfilled, (state, action) => {
             state.profile = action.payload.profile
         })
-            .addCase(register.rejected, (state, action)=> {
-                debugger
-            })
     }
 });
 
@@ -36,7 +33,7 @@ const register = createAppAsyncThunk<void, ArgRegisterType>
     } catch (e: any) {
         debugger
         const err = e.response.data.error
-        return rejectWithValue
+        return rejectWithValue(err)
     }
 
 });
