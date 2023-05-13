@@ -24,7 +24,7 @@ export const Login = () => {
               message: 'Click to reference to reset password'
           }
 
-          // dispatch(authThunks.forgotPassword(payload))
+          dispatch(authThunks.forgotPassword(payload))
     }
 
 
