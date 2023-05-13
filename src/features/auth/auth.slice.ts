@@ -47,5 +47,5 @@ const slice = createSlice({
 });
 
 export const authReducer = slice.reducer;
-export const authThunks = {register, login, forgotPassword};
+export const authThunks = {register, login, forgotPassword, resetPassword};
 
