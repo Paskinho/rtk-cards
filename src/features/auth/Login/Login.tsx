@@ -10,7 +10,7 @@ export const Login = () => {
     const loginHandler = () => {
         const payload = {
             email: "v.paskanov@gmail.com",
-            password: "Luissuarez_07",
+            password: "Luissuarez07",
             rememberMe: false
         }
 
@@ -18,7 +18,11 @@ export const Login = () => {
     };
 
 
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit} = useForm({
+        // validate: (values)=> {
+        //
+        // }
+    });
 
 
 

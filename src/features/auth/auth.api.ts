@@ -6,6 +6,12 @@ export const authApi = {
     },
     login: (arg: ArgLoginType) => {
         return instance.post<ProfileType>('auth/login', arg)
+    },
+    forgotPassword:()=> {
+        return instance.post('auth/forgot')
+    },
+    resetPassword: () => {
+        return instance.post('auth/set-new-password')
     }
 }
 
