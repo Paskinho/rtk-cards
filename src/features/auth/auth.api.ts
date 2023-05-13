@@ -12,6 +12,9 @@ export const authApi = {
     },
     resetPassword: (arg: ArgResetPassType) => {
         return instance.post<SetNewPasswordType>('auth/set-new-password', arg)
+    },
+    profile: (arg: ArgProfileType) => {
+      return instance.put<ProfileResponseType>('auth/me', arg)
     }
 }
 
@@ -33,6 +36,11 @@ export type ArgForgotType = {
 export type ArgResetPassType = {
     password: string
     resetPasswordToken: string
+}
+
+export type ArgProfileType = {
+    name: string,
+    avatar: string,
 }
 
 
@@ -58,6 +66,11 @@ export type RegisterResponseType = {
 export type SetNewPasswordType = {
     info: string
     error: string
+}
+
+export type ProfileResponseType = {
+    updatedUser: ProfileType
+    error?: string
 }
 
 
