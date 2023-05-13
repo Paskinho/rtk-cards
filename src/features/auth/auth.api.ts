@@ -8,10 +8,10 @@ export const authApi = {
         return instance.post<ProfileType>('auth/login', arg)
     },
     forgotPassword:(arg: ArgForgotType)=> {
-        return instance.post('auth/forgot', arg)
+        return instance.post<SetNewPasswordType>('auth/forgot', arg)
     },
     resetPassword: (arg: ArgResetPassType) => {
-        return instance.post('auth/set-new-password', arg)
+        return instance.post<SetNewPasswordType>('auth/set-new-password', arg)
     }
 }
 
@@ -53,6 +53,11 @@ export type ProfileType = {
 }
 export type RegisterResponseType = {
     addedUser: Omit<ProfileType, 'token' | 'tokenDeathTime'>
+}
+
+export type SetNewPasswordType = {
+    info: string
+    error: string
 }
 
 

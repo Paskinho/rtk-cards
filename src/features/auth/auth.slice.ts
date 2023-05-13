@@ -14,6 +14,8 @@ const login = createAppAsyncThunk<{ profile: ProfileType }, ArgLoginType>
     return {profile: res.data}
 });
 
+const forgotPassword =
+
 
 const slice = createSlice({
     name: "auth",

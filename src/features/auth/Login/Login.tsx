@@ -17,6 +17,17 @@ export const Login = () => {
         dispatch(authThunks.login(payload));
     };
 
+    const forgotPasswordHandler = () => {
+          const payload = {
+              email: "v.paskanov@gmail.com",
+              from: "test from vladok1993@mail.ru",
+              message: 'Click to reference to reset password'
+          }
+
+          // dispatch(authThunks.forgotPassword(payload))
+    }
+
+
 
     const {register, handleSubmit} = useForm({
         // validate: (values)=> {
@@ -34,6 +45,7 @@ export const Login = () => {
             <input placeholder={'password'}/>
             <h1>Login</h1>
             <button onClick={loginHandler}>login</button>
+            <button onClick={forgotPasswordHandler}>Forgot Password</button>
         </div>
     </form>
     );
