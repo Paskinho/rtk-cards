@@ -7,11 +7,11 @@ export const authApi = {
     login: (arg: ArgLoginType) => {
         return instance.post<ProfileType>('auth/login', arg)
     },
-    forgotPassword:()=> {
-        return instance.post('auth/forgot')
+    forgotPassword:(arg: ArgForgotType)=> {
+        return instance.post('auth/forgot', arg)
     },
-    resetPassword: () => {
-        return instance.post('auth/set-new-password')
+    resetPassword: (arg: ArgResetPassType) => {
+        return instance.post('auth/set-new-password', arg)
     }
 }
 
@@ -23,6 +23,18 @@ export type ArgLoginType = {
 };
 
 export type ArgRegisterType = Omit<ArgLoginType, 'rememberMe'>
+
+export type ArgForgotType = {
+    email: string,
+    from?: string,
+    message: string
+}
+
+export type ArgResetPassType = {
+    password: string
+    resetPasswordToken: string
+}
+
 
 
 export type ProfileType = {
