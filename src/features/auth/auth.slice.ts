@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {
     ArgForgotType,
-    ArgLoginType,
+    ArgLoginType, ArgProfileType,
     ArgRegisterType, ArgResetPassType,
     authApi,
     ProfileType,
@@ -29,6 +29,11 @@ const forgotPassword = createAppAsyncThunk<{password: SetNewPasswordType}, ArgFo
 const resetPassword = createAppAsyncThunk<{password: SetNewPasswordType}, ArgResetPassType>('auth/newPassword',async (arg, thunkAPI)=> {
     const res = await authApi.resetPassword(arg)
     return {password: res.data}
+})
+
+const profile = createAppAsyncThunk<{profile: ProfileType}, ArgProfileType> ('auth/profile', async (arg)=> {
+    const res = await authApi.profile(arg)
+    return {profile: res.data}
 })
 
 
