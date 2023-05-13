@@ -10,9 +10,33 @@ import {
 import {createAppAsyncThunk} from "common/utils/createAppAsyncThunk";
 
 
+const slice = createSlice({
+    name: "auth",
+    initialState: {
+        profile: null as ProfileType | null,
+        password: null as SetNewPasswordType | null
+    },
+    reducers: {},
+    extraReducers: builder => {
+        builder.addCase(login.fulfilled, (state, action) => {
+            state.profile = action.payload.profile
+        })
+            .addCase(register.rejected, (state, action)=> {
+                debugger
+            })
+    }
+});
+
+
 const register = createAppAsyncThunk<void, ArgRegisterType>
 ('auth/register', async (arg) => {
-    await authApi.register(arg)
+    try {
+        await authApi.register(arg)
+    } catch (e: any) {
+        debugger
+        const err = e.response.data.error
+    }
+
 });
 
 const login = createAppAsyncThunk<{ profile: ProfileType }, ArgLoginType>
@@ -37,19 +61,7 @@ const resetPassword = createAppAsyncThunk<{password: SetNewPasswordType}, ArgRes
 // })
 
 
-const slice = createSlice({
-    name: "auth",
-    initialState: {
-        profile: null as ProfileType | null,
-        password: null as SetNewPasswordType | null
-    },
-    reducers: {},
-    extraReducers: builder => {
-        builder.addCase(login.fulfilled, (state, action) => {
-            state.profile = action.payload.profile
-        })
-    }
-});
+
 
 export const authReducer = slice.reducer;
 export const authThunks = {register, login, forgotPassword, resetPassword};
