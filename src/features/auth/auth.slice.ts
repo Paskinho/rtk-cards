@@ -31,10 +31,10 @@ const resetPassword = createAppAsyncThunk<{password: SetNewPasswordType}, ArgRes
     return {password: res.data}
 })
 
-const profile = createAppAsyncThunk<{profile: ProfileType}, ArgProfileType> ('auth/profile', async (arg)=> {
-    const res = await authApi.profile(arg)
-    return {profile: res.data}
-})
+// const newProfile = createAppAsyncThunk<{profile: ProfileType}, ArgProfileType> ('auth/profile', async (arg, thunkAPI) => {
+//     const res = await authApi.profile(arg)
+//     return {profile: res.data}
+// })
 
 
 const slice = createSlice({
