@@ -29,12 +29,14 @@ const slice = createSlice({
 
 
 const register = createAppAsyncThunk<void, ArgRegisterType>
-('auth/register', async (arg) => {
+('auth/register', async (arg, thunkAPI) => {
+    const {dispatch, rejectWithValue} = thunkAPI
     try {
         await authApi.register(arg)
     } catch (e: any) {
         debugger
         const err = e.response.data.error
+        return rejectWithValue
     }
 
 });
