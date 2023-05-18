@@ -8,6 +8,9 @@ import {
     SetNewPasswordType
 } from "features/auth/auth.api";
 import {createAppAsyncThunk} from "common/utils/createAppAsyncThunk";
+import {appActions} from "app/app.slice";
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
 
 
 const slice = createSlice({
@@ -31,9 +34,8 @@ const register = createAppAsyncThunk<void, ArgRegisterType>
     try {
         await authApi.register(arg)
     } catch (e: any) {
-        debugger
-        const err = e.response.data.error
-        return rejectWithValue(err)
+        dispatch(appActions.setError({error: e.response.data.error}))
+        return rejectWithValue(e.response.data.error)
     }
 
 });
