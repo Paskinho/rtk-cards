@@ -35,7 +35,7 @@ const register = createAppAsyncThunk<void, ArgRegisterType>
         await authApi.register(arg)
     } catch (e: any) {
         dispatch(appActions.setError({error: e.response.data.error}))
-        return rejectWithValue(e.response.data.error)
+        return rejectWithValue(null)
     }
 
 });
