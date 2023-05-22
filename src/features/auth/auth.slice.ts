@@ -34,7 +34,7 @@ const register = createAppAsyncThunk<void, ArgRegisterType>
     try {
         await authApi.register(arg)
     } catch (e: any) {
-        dispatch(appActions.setError({error: e.response.data.error}))
+        dispatch(appActions.setError({error: e.response ? e.response.data.error : e.message}))
         return rejectWithValue(null)
     }
 
