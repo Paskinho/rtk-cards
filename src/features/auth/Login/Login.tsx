@@ -9,7 +9,8 @@ export const Login = () => {
 
     const loginHandler = () => {
         const payload = {
-            email: "v.paskanov@gmail.com",
+            // email: "v.paskanov@gmail.com",
+            email: "v.paskanov@gmasadasdgil.com",
             password: "Luissuarez07",
             rememberMe: false
         }

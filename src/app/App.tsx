@@ -9,11 +9,11 @@ function App() {
 
     const dispatch = useAppDispatch();
 
-    useEffect(() => {
-        setTimeout(() => {
-            dispatch(appActions.setIsLoading({isLoading: false}))
-        }, 3000)
-    }, []);
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         dispatch(appActions.setIsLoading({isLoading: false}))
+    //     }, 3000)
+    // }, []);
 
     return (
         <div className="App">

@@ -27,6 +27,19 @@ const slice = createSlice({
     }
 });
 
+const login = createAppAsyncThunk<{ profile: ProfileType }, ArgLoginType>
+('auth/login', async (arg, thunkAPI) => {
+    const {dispatch, rejectWithValue} = thunkAPI
+    try {
+        const res = await authApi.login(arg);
+        return {profile: res.data}
+    } catch (e: any) {
+        const error = e.response ? e.response.data.error : e.message
+        dispatch(appActions.setError({error}))
+        return rejectWithValue(null)
+    }
+});
+
 
 const register = createAppAsyncThunk<void, ArgRegisterType>
 ('auth/register', async (arg, thunkAPI) => {
@@ -34,24 +47,20 @@ const register = createAppAsyncThunk<void, ArgRegisterType>
     try {
         await authApi.register(arg)
     } catch (e: any) {
-        dispatch(appActions.setError({error: e.response ? e.response.data.error : e.message}))
+        const error = e.response ? e.response.data.error : e.message
+        dispatch(appActions.setError({error}))
         return rejectWithValue(null)
     }
 
 });
 
-const login = createAppAsyncThunk<{ profile: ProfileType }, ArgLoginType>
-('auth/login', async (arg) => {
-    const res = await authApi.login(arg);
-    return {profile: res.data}
-});
 
-const forgotPassword = createAppAsyncThunk<{password: SetNewPasswordType}, ArgForgotType>('auth/forgotPassword',async (arg, thunkAPI)=> {
+const forgotPassword = createAppAsyncThunk<{ password: SetNewPasswordType }, ArgForgotType>('auth/forgotPassword', async (arg, thunkAPI) => {
     const res = await authApi.forgotPassword(arg)
     return {password: res.data}
 })
 
-const resetPassword = createAppAsyncThunk<{password: SetNewPasswordType}, ArgResetPassType>('auth/newPassword',async (arg, thunkAPI)=> {
+const resetPassword = createAppAsyncThunk<{ password: SetNewPasswordType }, ArgResetPassType>('auth/newPassword', async (arg, thunkAPI) => {
     const res = await authApi.resetPassword(arg)
     return {password: res.data}
 })
@@ -60,8 +69,6 @@ const resetPassword = createAppAsyncThunk<{password: SetNewPasswordType}, ArgRes
 //     const res = await authApi.profile(arg)
 //     return {profile: res.data}
 // })
-
-
 
 
 export const authReducer = slice.reducer;
