@@ -30,28 +30,18 @@ const slice = createSlice({
 
 const login = createAppAsyncThunk<{ profile: ProfileType }, ArgLoginType>
 ('auth/login', async (arg, thunkAPI) => {
-    await thunkTryCatch(thunkAPI, async ()=> {
+    return thunkTryCatch(thunkAPI, async () => {
         const res = await authApi.login(arg);
         return {profile: res.data}
     })
-
-    const {dispatch, rejectWithValue} = thunkAPI
-    try {
-        const res = await authApi.login(arg);
-        return {profile: res.data}
-    } catch (e: any) {
-        const error = e.response ? e.response.data.error : e.message
-        dispatch(appActions.setError({error}))
-        return rejectWithValue(null)
-    }
-});
+})
 
 
-const register = createAppAsyncThunk<void, ArgRegisterType>
-('auth/register', async (arg, thunkAPI) => {
-    await thunkTryCatch(thunkAPI,async ()=> {
-        await authApi.register(arg)
-    })
+const register = createAppAsyncThunk<void, ArgRegisterType>("auth/register", async (arg: ArgRegisterType, thunkAPI) => {
+    return thunkTryCatch(thunkAPI, async () => {
+        const res = await authApi.register(arg);
+        console.log("register", res);
+    });
 });
 
 
