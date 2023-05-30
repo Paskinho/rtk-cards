@@ -1,4 +1,4 @@
-import {useAppDispatch} from "app/hooks";
+import { useAppDispatch } from "common/components/hooks";
 import {authThunks} from "features/auth/auth.slice";
 
 

@@ -1,4 +1,4 @@
-import { useAppDispatch } from "app/hooks";
+import { useAppDispatch } from "common/components/hooks";
 import {authThunks} from "features/auth/auth.slice";
 import s from 'features/auth/Register/styles.module.css'
 import {useForm} from "react-hook-form";

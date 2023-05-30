@@ -1,6 +1,7 @@
-import { useAppDispatch } from "app/hooks";
+
 import {authThunks} from "features/auth/auth.slice";
 import s from 'features/auth/Register/styles.module.css'
+import {useAppDispatch} from "common/components/hooks";
 
 
 export const Register = () => {
