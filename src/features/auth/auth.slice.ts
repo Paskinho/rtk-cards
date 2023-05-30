@@ -30,6 +30,11 @@ const slice = createSlice({
 
 const login = createAppAsyncThunk<{ profile: ProfileType }, ArgLoginType>
 ('auth/login', async (arg, thunkAPI) => {
+    await thunkTryCatch(thunkAPI, async ()=> {
+        const res = await authApi.login(arg);
+        return {profile: res.data}
+    })
+
     const {dispatch, rejectWithValue} = thunkAPI
     try {
         const res = await authApi.login(arg);
@@ -44,7 +49,6 @@ const login = createAppAsyncThunk<{ profile: ProfileType }, ArgLoginType>
 
 const register = createAppAsyncThunk<void, ArgRegisterType>
 ('auth/register', async (arg, thunkAPI) => {
-
     await thunkTryCatch(thunkAPI,async ()=> {
         await authApi.register(arg)
     })
