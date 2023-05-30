@@ -9,6 +9,8 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import { Register } from 'features/auth/Register/Register';
 import {Login} from "features/auth/Login/Login";
 import { Profile } from 'features/profile/Profile';
+import {GlobalError} from "common/components/GlobalError/GlobalError";
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
     {
@@ -40,6 +42,7 @@ const root = createRoot(container);
 root.render(
     <Provider store={store}>
         <RouterProvider router={router} />
+        <GlobalError/>
         <App />
     </Provider>
 );
