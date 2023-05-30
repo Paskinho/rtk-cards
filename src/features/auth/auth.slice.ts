@@ -11,6 +11,7 @@ import {createAppAsyncThunk} from "common/utils/createAppAsyncThunk";
 import {appActions} from "app/app.slice";
 import {Simulate} from "react-dom/test-utils";
 import error = Simulate.error;
+import {thunkTryCatch} from "common/utils/thunk-try-catch";
 
 
 const slice = createSlice({
@@ -43,15 +44,10 @@ const login = createAppAsyncThunk<{ profile: ProfileType }, ArgLoginType>
 
 const register = createAppAsyncThunk<void, ArgRegisterType>
 ('auth/register', async (arg, thunkAPI) => {
-    const {dispatch, rejectWithValue} = thunkAPI
-    try {
-        await authApi.register(arg)
-    } catch (e: any) {
-        const error = e.response ? e.response.data.error : e.message
-        dispatch(appActions.setError({error}))
-        return rejectWithValue(null)
-    }
 
+    await thunkTryCatch(thunkAPI,async ()=> {
+        await authApi.register(arg)
+    })
 });
 
 
