@@ -3,6 +3,7 @@ import {Counter} from 'features/counter/Counter';
 import 'app/App.css';
 import {useAppDispatch, useAppSelector} from "app/hooks";
 import {appActions} from "app/app.slice";
+import {LinearProgress} from "@mui/material";
 
 function App() {
     const isLoading = useAppSelector((state) => state.app.isLoading);
@@ -17,8 +18,7 @@ function App() {
 
     return (
         <div className="App">
-            {isLoading && <h1>Loader...</h1>}
-            <Counter/>
+            {isLoading && <LinearProgress/>}
             {/*<Register/>*/}
             {/*<Login/>*/}
         </div>
