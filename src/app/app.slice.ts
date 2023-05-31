@@ -43,6 +43,8 @@ const slice = createSlice({
             return action.type.endsWith('/fullfield')
         }, (state,action)=>{
             state.isLoading = false
+        }).addDefaultCase((state, action)=>{
+            console.log(action.type)
         })
     }
 })
