@@ -7,7 +7,7 @@ export const thunkTryCatch = async (thunkAPI: BaseThunkAPI<RootState, any, AppDi
                                     logic: Function) => {
     const { dispatch, rejectWithValue } = thunkAPI;
     try {
-        dispatch(appActions.setIsLoading({isLoading: true}))
+        // dispatch(appActions.setIsLoading({isLoading: true}))
         return await logic();
     } catch (e) {
         const err = e as Error | AxiosError<{ error: string }>;

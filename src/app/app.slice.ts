@@ -23,10 +23,10 @@ const slice = createSlice({
     extraReducers: builder => {
         builder.addMatcher(
             (action)=> {
-                return true
+                return action.type.endsWith('/pending')
             },
             (state, action)=> {
-                console.log('addMatcher')
+                state.isLoading = true;
             }
         )
     }
