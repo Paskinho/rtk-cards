@@ -11,7 +11,7 @@ import {createAppAsyncThunk} from "common/utils/createAppAsyncThunk";
 import {appActions} from "app/app.slice";
 import {Simulate} from "react-dom/test-utils";
 import error = Simulate.error;
-import {thunkTryCatch} from "common/utils/thunk-try-catch";
+import {thunkTryCatch} from "common/utils/thunkTryCatch";
 
 
 const slice = createSlice({

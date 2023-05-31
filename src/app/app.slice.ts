@@ -19,6 +19,16 @@ const slice = createSlice({
         setError: (state, action: PayloadAction<{error: string | null}>) => {
             state.error = action.payload.error
         }
+    },
+    extraReducers: builder => {
+        builder.addMatcher(
+            (action)=> {
+                return true
+            },
+            (state, action)=> {
+                console.log('addMatcher')
+            }
+        )
     }
 })
 
