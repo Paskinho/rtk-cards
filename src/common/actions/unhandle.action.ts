@@ -1,3 +1,3 @@
 import {createAction} from "@reduxjs/toolkit";
 
-const unhandleAction = createAction<string>('common/unHandleAction')
+export const unhandleAction = createAction<void>('common/unHandleAction')

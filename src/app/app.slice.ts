@@ -6,6 +6,7 @@ const appInitialState = {
     error: null as string | null,
     isLoading: false,
     isAppInitialized: false,
+    unhandleActions: [] as string []
 }
 
 type InitialStateType = typeof appInitialState
@@ -44,6 +45,7 @@ const slice = createSlice({
         }, (state,action)=>{
             state.isLoading = false
         }).addDefaultCase((state, action)=>{
+            state.unhandleActions.push(action.type)
             console.log(action.type)
         })
     }
