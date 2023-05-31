@@ -28,7 +28,15 @@ const slice = createSlice({
             (state, action)=> {
                 state.isLoading = true;
             }
-        )
+        ).addMatcher((action)=> {
+            return action.type.endsWith('/fullfield')
+        }, (state,action)=>{
+            state.isLoading = false
+        }).addMatcher((action)=> {
+            return action.type.endsWith('/rejected')
+        }, (state,action)=>{
+            state.isLoading = false
+        })
     }
 })
 

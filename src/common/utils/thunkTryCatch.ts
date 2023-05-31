@@ -19,7 +19,7 @@ export const thunkTryCatch = async (thunkAPI: BaseThunkAPI<RootState, any, AppDi
         }
         return rejectWithValue(null);
     }
-    finally {
-        dispatch(appActions.setIsLoading({isLoading: false}))
-    }
+    // finally {
+    //     dispatch(appActions.setIsLoading({isLoading: false}))
+    // }
 };
