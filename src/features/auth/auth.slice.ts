@@ -1,16 +1,15 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {
     ArgForgotType,
-    ArgLoginType, ArgProfileType,
-    ArgRegisterType, ArgResetPassType,
+    ArgLoginType,
+    ArgRegisterType,
+    ArgResetPassType,
     authApi,
     ProfileType,
     SetNewPasswordType
 } from "features/auth/auth.api";
 import {createAppAsyncThunk} from "common/utils/createAppAsyncThunk";
-import {appActions} from "app/app.slice";
 import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
 import {thunkTryCatch} from "common/utils/thunkTryCatch";
 
 

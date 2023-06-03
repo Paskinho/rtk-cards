@@ -2,6 +2,7 @@ import { useAppDispatch } from "common/components/hooks";
 import {authThunks} from "features/auth/auth.slice";
 import s from 'features/auth/Register/styles.module.css'
 import {useForm} from "react-hook-form";
+import {toast} from "react-toastify";
 
 
 export const Login = () => {
@@ -14,7 +15,9 @@ export const Login = () => {
             rememberMe: false
         }
 
-        dispatch(authThunks.login(payload));
+        dispatch(authThunks.login(payload)).then((res)=> {
+            toast.success('You successfully login')
+        });
     };
 
     const forgotPasswordHandler = () => {
