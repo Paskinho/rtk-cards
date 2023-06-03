@@ -18,11 +18,14 @@ export const Login = () => {
             rememberMe: false
         }
 
-        dispatch(authThunks.login(payload)).then((res)=> {
+        dispatch(authThunks.login(payload))
+            .unwrap()
+            .then((res)=> {
             toast.success('Successfully login')
-            setTimeout(()=> {
-                navigate('/')
-            }, 1000)
+            // setTimeout(()=> {
+            //     navigate('/')
+            // }, 1000)
+        }).catch((err)=> {
 
         });
     };
