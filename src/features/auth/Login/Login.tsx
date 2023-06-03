@@ -3,10 +3,13 @@ import {authThunks} from "features/auth/auth.slice";
 import s from 'features/auth/Register/styles.module.css'
 import {useForm} from "react-hook-form";
 import {toast} from "react-toastify";
+import {useNavigate} from "react-router-dom";
 
 
 export const Login = () => {
     const dispatch = useAppDispatch();
+    const navigate = useNavigate()
+
 
     const loginHandler = () => {
         const payload = {
@@ -16,7 +19,11 @@ export const Login = () => {
         }
 
         dispatch(authThunks.login(payload)).then((res)=> {
-            toast.success('You successfully login')
+            toast.success('Successfully login')
+            setTimeout(()=> {
+                navigate('/')
+            }, 1000)
+
         });
     };
 
