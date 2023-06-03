@@ -26,7 +26,7 @@ export const Login = () => {
             //     navigate('/')
             // }, 1000)
         }).catch((err)=> {
-
+            toast.error(err.response.data.error)
         });
     };
 
