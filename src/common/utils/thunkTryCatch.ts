@@ -12,6 +12,7 @@ export const thunkTryCatch = async (thunkAPI: BaseThunkAPI<RootState, any, AppDi
         // dispatch(appActions.setIsLoading({isLoading: true}))
         return await logic();
     } catch (e) {
+        return rejectWithValue({e, showGlobalError})
         if (showGlobalError) {
             return rejectWithValue(e);
         } else {

@@ -36,7 +36,6 @@ const slice = createSlice({
         }, (state,action) => {
             state.isLoading = false
             if(action.type === authThunks.login.rejected.type) return;
-
             const err = action.payload as Error | AxiosError<{ error: string }>;
             if (isAxiosError(err)) {
                 state.error = err.response ? err.response.data.error : err.message
