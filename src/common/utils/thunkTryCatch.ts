@@ -4,13 +4,20 @@ import {appActions} from "app/app.slice";
 import {AxiosError, isAxiosError} from "axios";
 
 export const thunkTryCatch = async (thunkAPI: BaseThunkAPI<RootState, any, AppDispatch, unknown>,
-                                    logic: Function) => {
-    const {rejectWithValue } = thunkAPI;
+                                    logic: Function,
+                                    showGlobalError: boolean = true
+) => {
+    const {rejectWithValue} = thunkAPI;
     try {
         // dispatch(appActions.setIsLoading({isLoading: true}))
         return await logic();
     } catch (e) {
-        return rejectWithValue(e);
+        if (showGlobalError) {
+            return rejectWithValue(e);
+        } else {
+            return rejectWithValue(null)
+        }
+
     }
     // finally {
     //     dispatch(appActions.setIsLoading({isLoading: false}))

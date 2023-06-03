@@ -32,7 +32,7 @@ const login = createAppAsyncThunk<{ profile: ProfileType }, ArgLoginType>
     return thunkTryCatch(thunkAPI, async () => {
         const res = await authApi.login(arg);
         return {profile: res.data}
-    })
+    }, false)
 })
 
 
