@@ -45,7 +45,7 @@ const register = createAppAsyncThunk<void, ArgRegisterType>("auth/register", asy
 
 
 const forgotPassword = createAppAsyncThunk<{ password: SetNewPasswordType }, ArgForgotType>('auth/forgotPassword', async (arg, thunkAPI) => {
-    const res = await authApi.forgotPassword(arg)
+    const res =  await authApi.forgotPassword(arg)
     return {password: res.data}
 })
 
