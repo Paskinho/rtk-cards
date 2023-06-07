@@ -58,12 +58,12 @@ export const Login = () => {
     <form   onSubmit={handleSubmit(()=> {
     })}>
         <div className={s.container}>
+            <h1>Sign in</h1>
             <input placeholder={'Email'}/>
-            <input placeholder={'password'}/>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Remember Me" />
-            <h1>Login</h1>
-            <button onClick={loginHandler}>login</button>
+            <input placeholder={'password'} type={"password"}/>
             <button onClick={forgotPasswordHandler}>Forgot Password</button>
+            <FormControlLabel control={<Checkbox defaultChecked />} label="Remember Me" />
+            <button onClick={loginHandler}>Sign In</button>
         </div>
     </form>
     );
