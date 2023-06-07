@@ -21,7 +21,6 @@ export const Login = () => {
             password: "Luissuarez07",
             rememberMe: false
         }
-
         dispatch(authThunks.login(payload))
             .unwrap()
             .then((res)=> {
@@ -59,8 +58,10 @@ export const Login = () => {
     })}>
         <div className={s.container}>
             <h1>Sign in</h1>
-            <input placeholder={'Email'}/>
-            <input placeholder={'password'} type={"password"}/>
+            <label>Email</label>
+            <input className={s.input} placeholder={'Email'} type={"email"}/>
+            <label>Password</label>
+            <input className={s.input} placeholder={'password'} type={"password"}/>
             <button onClick={forgotPasswordHandler}>Forgot Password</button>
             <FormControlLabel control={<Checkbox defaultChecked />} label="Remember Me" />
             <button className={s.sign} onClick={loginHandler}>Sign In</button>
