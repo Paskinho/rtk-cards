@@ -15,17 +15,31 @@
     height: 25px;
 }
 
+.sign:hover {
+    cursor: pointer;
+}
+
 .forgot {
     display: flex;
     align-content: flex-end;
     padding-left: 120px;
+    cursor: pointer;
 }
 
 .input {
     border-top: 0;
     border-right: 0;
     border-left: 0;
-    border-color: black;
+    border-color: darkgrey;
     width: 250px;
     height: 25px;
 }
+
+.input:hover {
+    border-color: #2e89dc;
+}
+
+.label {
+    color: darkgrey;
+}
+

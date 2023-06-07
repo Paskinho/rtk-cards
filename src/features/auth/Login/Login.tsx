@@ -58,9 +58,9 @@ export const Login = () => {
     })}>
         <div className={s.container}>
             <h1>Sign in</h1>
-            <label>Email</label>
+            <label className={s.label}>Email</label>
             <input className={s.input} placeholder={'Email'} type={"email"}/>
-            <label>Password</label>
+            <label className={s.label}>Password</label>
             <input className={s.input} placeholder={'password'} type={"password"}/>
             <FormControlLabel control={<Checkbox defaultChecked />} label="Remember Me" />
             <div className={s.forgot} onClick={forgotPasswordHandler}>Forgot Password?</div>
