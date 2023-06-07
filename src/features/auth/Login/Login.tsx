@@ -1,6 +1,6 @@
 import { useAppDispatch } from "common/components/hooks";
 import {authThunks} from "features/auth/auth.slice";
-import s from 'features/auth/Register/styles.module.css'
+import s from 'features/auth/Login/styles.module.css'
 import {useForm} from "react-hook-form";
 import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
@@ -63,7 +63,7 @@ export const Login = () => {
             <input placeholder={'password'} type={"password"}/>
             <button onClick={forgotPasswordHandler}>Forgot Password</button>
             <FormControlLabel control={<Checkbox defaultChecked />} label="Remember Me" />
-            <button onClick={loginHandler}>Sign In</button>
+            <button className={s.sign} onClick={loginHandler}>Sign In</button>
         </div>
     </form>
     );
