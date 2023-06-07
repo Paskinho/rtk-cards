@@ -4,6 +4,10 @@ import s from 'features/auth/Register/styles.module.css'
 import {useForm} from "react-hook-form";
 import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
+import Checkbox from "@mui/material/Checkbox";
+import {doc} from "prettier";
+import label = doc.builders.label;
+import {FormControlLabel} from "@mui/material";
 
 
 export const Login = () => {
@@ -51,11 +55,12 @@ export const Login = () => {
 
 
     return (
-    <form  onSubmit={handleSubmit(()=> {
+    <form   onSubmit={handleSubmit(()=> {
     })}>
         <div className={s.container}>
             <input placeholder={'Email'}/>
             <input placeholder={'password'}/>
+            <FormControlLabel control={<Checkbox defaultChecked />} label="Remember Me" />
             <h1>Login</h1>
             <button onClick={loginHandler}>login</button>
             <button onClick={forgotPasswordHandler}>Forgot Password</button>
