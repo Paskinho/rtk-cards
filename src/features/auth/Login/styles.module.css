@@ -16,6 +16,9 @@
 }
 
 .forgot {
+    display: flex;
+    align-content: flex-end;
+    padding-left: 120px;
 }
 
 .input {
@@ -25,5 +28,4 @@
     border-color: black;
     width: 250px;
     height: 25px;
-
 }
