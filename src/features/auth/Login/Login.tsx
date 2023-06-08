@@ -65,6 +65,7 @@ export const Login = () => {
             <FormControlLabel className={s.checkbox} control={<Checkbox defaultChecked />} label="Remember Me" />
             <div className={s.forgot} onClick={forgotPasswordHandler}>Forgot Password?</div>
             <button className={s.sign} onClick={loginHandler}>Sign In</button>
+            <div className={s.registration}>Don't have an account?</div>
         </div>
     </form>
     );
