@@ -11,6 +11,7 @@ import {Login} from "features/auth/Login/Login";
 import { Profile } from 'features/profile/Profile';
 import {GlobalError} from "common/components/GlobalError/GlobalError";
 import 'react-toastify/dist/ReactToastify.css';
+import {Header} from "features/header/Header";
 
 const router = createBrowserRouter([
     {
@@ -41,6 +42,7 @@ const root = createRoot(container);
 
 root.render(
     <Provider store={store}>
+        <Header/>
         <GlobalError/>
         <App />
         <RouterProvider router={router} />
