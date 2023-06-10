@@ -6,3 +6,17 @@
 .img {
   height: 50px;
 }
+
+.signHeader {
+  color: white;
+  background-color: #3598f5;
+  border-radius: 10px;
+  border: 0;
+  width: 75px;
+  height: 25px;
+}
+
+.signHeader:hover {
+  cursor: pointer;
+}
+

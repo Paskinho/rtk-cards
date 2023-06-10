@@ -6,6 +6,7 @@ export const Header = () => {
     return (
         <header className={s.header}>
         <div><img className={s.img} src={itIncubator}/> </div>
+            <button className={s.signHeader}>Sign In</button>
         </header>
     )
 
