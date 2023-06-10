@@ -1,12 +1,9 @@
-.header{
+.header {
   height: 50px;
   box-shadow: 1px 2px 1px 1px lightgray;
+  grid-area: header;
+  display: flex;
 }
-
-.img {
-  height: 50px;
-}
-
 .signHeader {
   color: white;
   background-color: #3598f5;
@@ -19,4 +16,14 @@
 .signHeader:hover {
   cursor: pointer;
 }
+
+
+
+
+.header img {
+  height: 50px;
+  display: flex;
+  padding-left: 150px;
+}
+
 
