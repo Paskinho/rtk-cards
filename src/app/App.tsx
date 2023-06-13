@@ -23,7 +23,7 @@ function App() {
         <div className="App">
             {isLoading && <LinearProgress/>}
             {/*<Register/>*/}
-            {/*<Login/>*/}
+            {/*<RecoveryPassword/>*/}
         </div>
     );
 }
