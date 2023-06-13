@@ -34,13 +34,7 @@ export const Login = () => {
     };
 
     const forgotPasswordHandler = () => {
-          const payload = {
-              email: "v.paskanov@gmail.com",
-              from: "test from vladok1993@mail.ru",
-              message: 'Click to reference to reset password'
-          }
-
-          dispatch(authThunks.forgotPassword(payload))
+          return navigate('/recovery')
     }
 
 
