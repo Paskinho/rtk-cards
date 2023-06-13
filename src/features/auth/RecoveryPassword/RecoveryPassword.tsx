@@ -7,6 +7,8 @@ import {useNavigate} from "react-router-dom";
 export const RecoveryPassword = () => {
 
     const dispatch = useAppDispatch();
+    const navigate = useNavigate()
+
 
     const forgotPasswordHandler = () => {
         const payload = {
@@ -19,10 +21,15 @@ export const RecoveryPassword = () => {
     }
 
 
+    const onLoginHandler = () => {
+        return navigate('/login')
+    }
+
     return <div className={s.container}>
         <h1>Forgot you Password?</h1>
         <input className={s.input} placeholder={'Email'} type={"email"}/>
+        <div>Enter your email address and we will send you further instructions</div>
         <button className={s.sign} onClick={forgotPasswordHandler}>Send Instructions</button>
-        <div className={s.registration}>Try logging in</div>
+        <div className={s.registration} onClick={onLoginHandler}>Try logging in</div>
     </div>
 };
