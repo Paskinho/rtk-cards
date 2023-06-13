@@ -12,6 +12,7 @@ import { Profile } from 'features/profile/Profile';
 import {GlobalError} from "common/components/GlobalError/GlobalError";
 import 'react-toastify/dist/ReactToastify.css';
 import {Header} from "features/header/Header";
+import {RecoveryPassword} from "features/auth/RecoveryPassword/RecoveryPassword";
 
 const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
     {
         path: '/profile',
         element:<Profile/>
+    },
+    {
+        path: '/recovery',
+        element:<RecoveryPassword/>
     }
 ])
 
