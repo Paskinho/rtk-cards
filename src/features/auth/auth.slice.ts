@@ -1,10 +1,10 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {
     ArgForgotType,
-    ArgLoginType,
+    ArgLoginType, ArgLogoutType,
     ArgRegisterType,
     ArgResetPassType,
-    authApi,
+    authApi, ProfileLogoutType,
     ProfileType,
     SetNewPasswordType
 } from "features/auth/auth.api";
@@ -35,6 +35,14 @@ const login = createAppAsyncThunk<{ profile: ProfileType }, ArgLoginType>
     }, false)
 })
 
+const logout = createAppAsyncThunk<{ profile: ProfileLogoutType}, ArgLogoutType>
+('auth/me', async (arg, thunkAPI) => {
+    return thunkTryCatch(thunkAPI, async () => {
+        const res = await authApi.logout(arg);
+        return {profile: res.data}
+    }, false)
+})
+
 
 const register = createAppAsyncThunk<void, ArgRegisterType>("auth/register", async (arg: ArgRegisterType, thunkAPI) => {
     return thunkTryCatch(thunkAPI, async () => {
@@ -61,5 +69,5 @@ const resetPassword = createAppAsyncThunk<{ password: SetNewPasswordType }, ArgR
 
 
 export const authReducer = slice.reducer;
-export const authThunks = {register, login, forgotPassword, resetPassword};
+export const authThunks = {register, login, forgotPassword, resetPassword, logout};
 
