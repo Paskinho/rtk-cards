@@ -1,6 +1,7 @@
 import { useAppDispatch } from "common/components/hooks";
 import {authThunks} from "features/auth/auth.slice";
 import s from 'features/auth/Login/styles.module.css'
+import sCommon from'../../../common/styles/styles.module.css'
 import {useForm} from "react-hook-form";
 import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
@@ -50,7 +51,7 @@ export const Login = () => {
     return (
     <form   onSubmit={handleSubmit(()=> {
     })}>
-        <div className={s.container}>
+        <div className={sCommon.container}>
             <h1>Sign in</h1>
             <label className={s.label}>Email</label>
             <input className={s.input} placeholder={'Email'} type={"email"}/>

@@ -1,11 +1,3 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding-top: 300px;
-}
-
 .sign {
     color: white;
     background-color: #3598f5;
