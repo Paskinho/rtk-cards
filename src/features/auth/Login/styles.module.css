@@ -19,29 +19,8 @@
     cursor: pointer;
 }
 
-.input {
-    border-top: 0;
-    border-right: 0;
-    border-left: 0;
-    border-color: darkgrey;
-    width: 250px;
-    height: 25px;
-}
 
-.input:hover {
-    border-color: #2e89dc;
-}
 
-.label {
-    color: darkgrey;
-}
 
-.checkbox {
-    padding-right: 100px;
-}
 
-.registration {
-    padding-top: 20px;
-    color: darkgrey;
-}
 

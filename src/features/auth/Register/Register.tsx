@@ -28,15 +28,15 @@ export const Register = () => {
             <form >
                 <div className={sCommon.container}>
                     <h1>Sign up</h1>
-                    <label className={s.label}>Email</label>
-                    <input className={s.input} placeholder={'Email'} type={"email"}/>
-                    <label className={s.label}>Password</label>
-                    <input className={s.input} placeholder={'password'} type={"password"}/>
-                    <label className={s.label}>Confirm password</label>
-                    <input className={s.input} placeholder={'confirm password'} type={"password"}/>
-                    <FormControlLabel className={s.checkbox} control={<Checkbox defaultChecked />} label="Remember Me" />
+                    <label className={sCommon.label}>Email</label>
+                    <input className={sCommon.input} placeholder={'Email'} type={"email"}/>
+                    <label className={sCommon.label}>Password</label>
+                    <input className={sCommon.input} placeholder={'password'} type={"password"}/>
+                    <label className={sCommon.label}>Confirm password</label>
+                    <input className={sCommon.input} placeholder={'confirm password'} type={"password"}/>
+                    <FormControlLabel className={sCommon.checkbox} control={<Checkbox defaultChecked />} label="Remember Me" />
                     <button onClick={registerHandler}>register</button>
-                    <div className={s.registration}>Already have an account?</div>
+                    <div className={sCommon.registration}>Already have an account?</div>
                 </div>
             </form>
     );
