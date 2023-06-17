@@ -6,10 +6,16 @@ import {useEffect} from "react";
 import {unhandleAction} from "common/actions/unhandle.action";
 import {FormControlLabel} from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
+import {useNavigate} from "react-router-dom";
 
 
 export const Register = () => {
     const dispatch = useAppDispatch();
+    const navigate = useNavigate()
+
+    const sigIn = () => {
+        return navigate('/login')
+    }
 
     useEffect(()=> {
         dispatch(unhandleAction())
@@ -34,9 +40,9 @@ export const Register = () => {
                     <input className={sCommon.input} placeholder={'password'} type={"password"}/>
                     <label className={sCommon.label}>Confirm password</label>
                     <input className={sCommon.input} placeholder={'confirm password'} type={"password"}/>
-                    <FormControlLabel className={sCommon.checkbox} control={<Checkbox defaultChecked />} label="Remember Me" />
-                    <button onClick={registerHandler}>register</button>
+                    <button onClick={registerHandler}>Sign Up</button>
                     <div className={sCommon.registration}>Already have an account?</div>
+                    <div className={s.signIn} onClick={sigIn}>Sign In</div>
                 </div>
             </form>
     );

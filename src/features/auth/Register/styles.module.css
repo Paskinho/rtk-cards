@@ -1,0 +1,9 @@
+.signIn {
+    display: flex;
+    align-content: center;
+    cursor: pointer;
+}
+
+.signIn:hover {
+    color: #2e89dc;
+}
