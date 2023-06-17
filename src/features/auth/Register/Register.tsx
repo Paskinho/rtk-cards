@@ -1,9 +1,10 @@
-
 import {authThunks} from "features/auth/auth.slice";
 import s from 'features/auth/Register/styles.module.css'
 import {useAppDispatch} from "common/components/hooks";
 import {useEffect} from "react";
 import {unhandleAction} from "common/actions/unhandle.action";
+import {FormControlLabel} from "@mui/material";
+import Checkbox from "@mui/material/Checkbox";
 
 
 export const Register = () => {
@@ -23,9 +24,17 @@ export const Register = () => {
     };
 
     return (
-        <div className={s.container}>
-            <h1>Register</h1>
-            <button onClick={registerHandler}>register</button>
-        </div>
+            <form >
+                <div className={s.container}>
+                    <h1>Sign up</h1>
+                    <label className={s.label}>Email</label>
+                    <input className={s.input} placeholder={'Email'} type={"email"}/>
+                    <label className={s.label}>Password</label>
+                    <input className={s.input} placeholder={'password'} type={"password"}/>
+                    <FormControlLabel className={s.checkbox} control={<Checkbox defaultChecked />} label="Remember Me" />
+                    <button onClick={registerHandler}>register</button>
+                    <div className={s.registration}>Don't have an account?</div>
+                </div>
+            </form>
     );
 }
