@@ -7,9 +7,9 @@ import ProfilePhoto from '../../assets/images/Profile.jpg'
 export const Profile = () => {
     const dispatch = useAppDispatch()
 
-    // const logoutHandler = () => {
-    //    return  dispatch(authThunks.logout)
-    // }
+    const logoutHandler = () => {
+       // return  dispatch(authThunks.logout)
+    }
 
     // dispatch(authThunks.profile)
     return (

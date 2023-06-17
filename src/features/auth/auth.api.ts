@@ -7,8 +7,8 @@ export const authApi = {
     login: (arg: ArgLoginType) => {
         return instance.post<ProfileType>('auth/login', arg)
     },
-    logout: (arg: ArgLoginType) => {
-        return instance.delete<ProfileType>('auth/me')// уточнить по arg
+    logout: (arg: ArgLogoutType) => {
+        return instance.delete<ProfileLogoutType>('auth/me', arg) // уточнить по arg
     },
     forgotPassword:(arg: ArgForgotType)=> {
         return instance.post<SetNewPasswordType>('auth/forgot', arg)
@@ -46,6 +46,10 @@ export type ArgProfileType = {
     avatar: string,
 }
 
+export type ArgLogoutType = {
+
+}
+
 
 
 export type ProfileType = {
@@ -74,6 +78,11 @@ export type SetNewPasswordType = {
 export type ProfileResponseType = {
     updatedUser: ProfileType
     error?: string
+}
+
+export type ProfileLogoutType = {
+    info: string // "logOut success —ฅ/ᐠ.̫ .ᐟ\ฅ—"
+    error: string;
 }
 
 
