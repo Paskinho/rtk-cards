@@ -3,3 +3,14 @@
     height: 200px;
     border-radius: 200px;
 }
+
+.logout {
+    background-color: darkgrey;
+    height: 30px;
+    width: 100px;
+}
+
+.logout:hover {
+    cursor: pointer;
+    background-color:red;
+}

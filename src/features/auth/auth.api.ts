@@ -7,6 +7,9 @@ export const authApi = {
     login: (arg: ArgLoginType) => {
         return instance.post<ProfileType>('auth/login', arg)
     },
+    logout: (arg: ArgLoginType) => {
+        return instance.delete<ProfileType>('auth/me')// уточнить по arg
+    },
     forgotPassword:(arg: ArgForgotType)=> {
         return instance.post<SetNewPasswordType>('auth/forgot', arg)
     },
