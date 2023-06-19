@@ -14,7 +14,9 @@ export const Profile = () => {
         dispatch(authThunks.logout(payload));
     }
 
-    const changeName = () => {}
+    const changeName = () => {
+
+    }
 
 
 
