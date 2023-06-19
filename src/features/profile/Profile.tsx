@@ -14,11 +14,17 @@ export const Profile = () => {
         dispatch(authThunks.logout(payload));
     }
 
+    const changeName = () => {}
+
+
+
     // dispatch(authThunks.profile)
     return (
         <div className={sCommon.container}>
             <h1>Personal Information</h1>
             <img className={s.profilePhoto} src={ProfilePhoto}/>
+            <div onClick={changeName}>Uladsislau</div>
+            <div>v.paskanov@gmail.com</div>
             <button onClick={logoutHandler} className={s.logout}>LogOut</button>
         </div>
     )
