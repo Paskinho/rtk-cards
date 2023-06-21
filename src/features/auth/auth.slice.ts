@@ -35,11 +35,10 @@ const login = createAppAsyncThunk<{ profile: ProfileType }, ArgLoginType>
     }, false)
 })
 
-const logout = createAppAsyncThunk<{ profile: ProfileLogoutType}, ArgLogoutType>
-('auth/me', async (arg, thunkAPI) => {
+const logout = createAppAsyncThunk ('auth/me', async (arg, thunkAPI) => { //убрал из типизации <{ profile: ProfileLogoutType}, ArgLogoutType>
     return thunkTryCatch(thunkAPI, async () => {
-        const res = await authApi.logout(arg);
-        return {profile: res.data}
+        const res = await authApi.logout();
+        return {}
     }, false)
 })
 

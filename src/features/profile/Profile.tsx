@@ -8,10 +8,7 @@ export const Profile = () => {
     const dispatch = useAppDispatch()
 
     const logoutHandler = () => {
-        const payload = {
-        }
-
-        dispatch(authThunks.logout(payload));
+        dispatch(authThunks.logout());
     }
 
     const changeName = () => {

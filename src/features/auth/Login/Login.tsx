@@ -26,9 +26,9 @@ export const Login = () => {
             .unwrap()
             .then((res)=> {
             toast.success('Successfully login')
-            // setTimeout(()=> {
-            //     navigate('/')
-            // }, 1000)
+            setTimeout(()=> {
+                navigate('/')
+            }, 1000)
         }).catch((err)=> {
             toast.error(err.e.response.data.error)
         });

@@ -1,4 +1,5 @@
 import {instance} from "common/api/common.api";
+import {AxiosResponse} from "axios";
 
 export const authApi = {
     register: (arg: ArgRegisterType) => {
@@ -7,8 +8,8 @@ export const authApi = {
     login: (arg: ArgLoginType) => {
         return instance.post<ProfileType>('auth/login', arg)
     },
-    logout: (arg: ArgLogoutType) => {
-        return instance.delete<ProfileLogoutType>('auth/me', arg) // уточнить по arg
+    logout: () => { // arg: ArgLogoutType
+        return instance.delete<AxiosResponse>('auth/me') // уточнить по arg был тип ProfileLogoutType
     },
     forgotPassword:(arg: ArgForgotType)=> {
         return instance.post<SetNewPasswordType>('auth/forgot', arg)
