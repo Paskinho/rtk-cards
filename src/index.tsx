@@ -13,6 +13,7 @@ import {GlobalError} from "common/components/GlobalError/GlobalError";
 import 'react-toastify/dist/ReactToastify.css';
 import {Header} from "features/header/Header";
 import {RecoveryPassword} from "features/auth/RecoveryPassword/RecoveryPassword";
+import {CardsPacks} from "features/cardsPacks/CardsPacks";
 
 const router = createBrowserRouter([
     {
@@ -38,7 +39,11 @@ const router = createBrowserRouter([
     },
     {
         path: '/recovery',
-        element:<RecoveryPassword/>
+        element: <RecoveryPassword/>
+    },
+    {
+        path: '/cardsPacks',
+        element:<CardsPacks/>
     }
 ])
 

@@ -5,7 +5,8 @@ import {authReducer} from "features/auth/auth.slice";
 export const store = configureStore({
   reducer: {
     app: appReducer,
-    auth: authReducer
+    auth: authReducer,
+    cardsPacks: cardsPacksReducer
   },
 });
 
