@@ -69,4 +69,3 @@ const setProfile = createAppAsyncThunk<{profile: ProfileType}, ArgProfileType> (
 
 export const authReducer = slice.reducer;
 export const authThunks = {register, login, forgotPassword, resetPassword, logout, setProfile};
-
