@@ -19,7 +19,7 @@ export const authApi = {
     },
     profile: (arg: ArgProfileType) => {
       return instance.put<ProfileResponseType>('auth/me', arg)
-    }
+    },
 }
 
 
@@ -43,8 +43,8 @@ export type ArgResetPassType = {
 }
 
 export type ArgProfileType = {
-    name: string,
-    avatar: string,
+    name?: string,
+    avatar?: string,
 }
 
 export type ArgLogoutType = {

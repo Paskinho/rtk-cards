@@ -19,7 +19,7 @@ export const Login = () => {
     const loginHandler = () => {
         const payload = {
             email: "v.paskanov@gmail.com",
-            password: "Luissuarez07",
+            password: "Luissuarez_07",
             rememberMe: false
         }
         dispatch(authThunks.login(payload))

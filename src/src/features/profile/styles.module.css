@@ -14,3 +14,12 @@
     cursor: pointer;
     background-color:red;
 }
+
+.changeName {
+
+}
+
+.changeName:hover {
+    cursor: pointer;
+    color: darkcyan;
+}
