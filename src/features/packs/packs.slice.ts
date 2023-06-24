@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {authApi, ProfileType, SetNewPasswordType} from "features/auth/auth.api";
 import {createAppAsyncThunk} from "../../common/utils/createAppAsyncThunk";
-import {packsApi} from "./packs.api";
+import {ArgGetPacksType, GetPacksType, packsApi} from "./packs.api";
 import {thunkTryCatch} from "../../common/utils/thunkTryCatch";
 
 const slice = createSlice({
@@ -11,10 +11,10 @@ const slice = createSlice({
     reducers: {},
 });
 
-const getPacks = createAppAsyncThunk<> ('packs/getPacks', async (arg , thunkAPI)=> {
+const getPacks = createAppAsyncThunk<{ response: GetPacksType }, ArgGetPacksType> ('packs/getPacks', async (arg , thunkAPI)=> {
     return thunkTryCatch(thunkAPI, async () => {
         const res = await packsApi.getPacks(arg);
-        return {packs: res.data}
+        return {response: res.data}
     });
 
 })

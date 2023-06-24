@@ -3,7 +3,7 @@ import {instance} from "../../common/api/common.api";
 
 export const packsApi = {
     getPacks: (arg: ArgGetPacksType) => {
-        return instance.get<GetPacksType>('/cards/pack', arg) // Уточнить по arg
+        return instance.get<GetPacksType>('/cards/pack', {params: {...arg}}) // Уточнить по arg
     }
 }
 
@@ -21,7 +21,7 @@ export type ArgGetPacksType = {
 
 
 export type GetPacksType = {
-    cardPacks: CardsPackType
+    cardPacks: CardsPackType[]
     cardPacksTotalCount: number
     maxCardsCount: number
     minCardsCount: number
