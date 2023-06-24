@@ -21,3 +21,4 @@ const getPacks = createAppAsyncThunk<{ response: GetPacksType }, ArgGetPacksType
 
 
 export const packsReducer = slice.reducer
+export const packsThunks = {getPacks}

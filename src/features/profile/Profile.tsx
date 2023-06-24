@@ -5,6 +5,8 @@ import s from 'features/profile/styles.module.css'
 import ProfilePhoto from '../../assets/images/Profile.jpg'
 import {ChangeEvent, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {Logout} from "@mui/icons-material";
+import {Button} from "@mui/material";
 
 export const Profile = () => {
     const dispatch = useAppDispatch()
@@ -42,7 +44,8 @@ export const Profile = () => {
             {!editMode &&
             <span className={s.changeName} onChange={changeName}>Uladsislau</span>}
             <div>v.paskanov@gmail.com</div>
-            <button onClick={logoutHandler} className={s.logout}>LogOut</button>
+            <Button onClick={logoutHandler} className={s.logout} startIcon={<Logout/>}>LogOut</Button>
+            {/*<Logout></Logout>*/}
         </div>
     )
 }
