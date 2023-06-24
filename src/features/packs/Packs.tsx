@@ -17,7 +17,6 @@ export const Packs = () => {
 
     return <div>
        <Table>
-           asdf
        </Table>
     </div>
 }

@@ -44,7 +44,8 @@ export const Profile = () => {
             {!editMode &&
             <span className={s.changeName} onChange={changeName}>Uladsislau</span>}
             <div>v.paskanov@gmail.com</div>
-            <Button onClick={logoutHandler} className={s.logout} startIcon={<Logout/>}>LogOut</Button>
+            <button onClick={logoutHandler} className={s.logout}>LogOut</button>
+            {/*<Button onClick={logoutHandler} className={s.logout} startIcon={<Logout/>}>LogOut</Button>*/}
             {/*<Logout></Logout>*/}
         </div>
     )
