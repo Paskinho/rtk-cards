@@ -11,9 +11,10 @@ const slice = createSlice({
     reducers: {},
 });
 
-const getPacks = createAppAsyncThunk ('packs/getPacks', async (arg , thunkAPI)=> {
+const getPacks = createAppAsyncThunk<> ('packs/getPacks', async (arg , thunkAPI)=> {
     return thunkTryCatch(thunkAPI, async () => {
         const res = await packsApi.getPacks(arg);
+        return {packs: res.data}
     });
 
 })
