@@ -14,7 +14,6 @@ export const Packs = () => {
     //     return dispatch(packsThunks.getPacks())
     // },)
 
-
     return <div>
        <Table>
        </Table>
